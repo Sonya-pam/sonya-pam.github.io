@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Choose a Country</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png">
+<link rel="shortcut icon" href="Images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="countries-page">
+
+<h1>🌍 Choose a Country</h1>
+
+<p>
+Select one country and experience its music and culture.
+</p>
+
+<div class="countries-grid">
+
+<div class="country-card">
+<h2>🇮🇹 Italy</h2>
+<img src="Images/italy.png" alt="Italy">
+<p>Modern Italian Pop</p>
+<button onclick="chooseCountry('Italy')">
+Choose
+</button>
+</div>
+
+<div class="country-card">
+<h2>🇯🇵 Japan</h2>
+<img src="Images/japan.png" alt="Japan">
+<p>J-Pop</p>
+<button onclick="chooseCountry('Japan')">
+Choose
+</button>
+</div>
+
+<div class="country-card">
+<h2>🇰🇷 South Korea</h2>
+<img src="Images/korea.png" alt="Korea">
+<p>K-Pop</p>
+<button onclick="chooseCountry('Korea')">
+Choose
+</button>
+</div>
+
+<div class="country-card">
+<h2>🇪🇸 Spain</h2>
+<img src="Images/spain.png" alt="Spain">
+<p>Spanish Pop</p>
+<button onclick="chooseCountry('Spain')">
+Choose
+</button>
+</div>
+
+<div class="country-card">
+<h2>🇫🇷 France</h2>
+<img src="Images/france.png" alt="France">
+<p>French Pop</p>
+<button onclick="chooseCountry('France')">
+Choose
+</button>
+</div>
+
+<div class="country-card">
+<h2>🇧🇷 Brazil</h2>
+<img src="Images/brazil.png" alt="Brazil">
+<p>Brazilian Pop</p>
+<button onclick="chooseCountry('Brazil')">
+Choose
+</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function chooseCountry(country){
+
+localStorage.setItem("selectedCountry", country);
+
+
+if(country === "Italy"){
+
+window.location.href="italy.html";
+
+}
+
+else if(country === "Japan"){
+
+window.location.href="japan.html";
+
+}
+
+else if(country === "Korea"){
+
+window.location.href="korea.html";
+
+}
+
+else if(country === "Spain"){
+
+window.location.href="spain.html";
+
+}
+
+else if(country === "France"){
+
+window.location.href="france.html";
+
+}
+
+else if(country === "Brazil"){
+
+window.location.href="brazil.html";
+
+}
+
+}
+
+</script>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Global Music Survey</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png">
+<link rel="shortcut icon" href="Images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="card survey-page">
+
+<h1>🌍 Global Music & Culture Survey</h1>
+
+<p class="subtitle">
+Your answers help us understand how music connects people and cultures.
+</p>
+
+<!-- Question 1 -->
+
+<div class="survey-question">
+
+<h2>
+1. How familiar were you with this country before?
+</h2>
+
+<div class="options">
+
+<div class="option-card">
+🌱
+<h3>Not familiar</h3>
+</div>
+
+<div class="option-card">
+🙂
+<h3>I knew a little</h3>
+</div>
+
+<div class="option-card">
+🌎
+<h3>I already knew a lot</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- Question 2 -->
+
+<div class="survey-question">
+
+<h2>
+2. How much did you enjoy the song?
+</h2>
+
+<div class="rating">
+
+<span data-value="1">⭐</span>
+<span data-value="2">⭐</span>
+<span data-value="3">⭐</span>
+<span data-value="4">⭐</span>
+<span data-value="5">⭐</span>
+
+</div>
+
+</div>
+
+<!-- Question 3 -->
+
+<div class="survey-question">
+
+<h2>
+3. What emotions did the song create?
+</h2>
+
+<div class="options emotions">
+
+<div class="option-card">😊 Happy</div>
+
+<div class="option-card">✨ Inspired</div>
+
+<div class="option-card">🌙 Calm</div>
+
+<div class="option-card">🔥 Energetic</div>
+
+<div class="option-card">💭 Emotional</div>
+
+</div>
+
+</div>
+
+<!-- Question 4 -->
+
+<div class="survey-question">
+
+<h2>
+4. Would you like to learn more about this culture?
+</h2>
+
+<div class="options">
+
+<div class="option-card">YES</div>
+
+<div class="option-card">MAYBE</div>
+
+<div class="option-card">NO</div>
+
+</div>
+
+</div>
+
+<!-- Question 5 -->
+
+<div class="survey-question">
+
+<h2>
+5. What was the most interesting thing you discovered?
+</h2>
+
+<textarea placeholder="Write your answer here..."></textarea>
+
+</div>
+
+<button onclick="finishSurvey()">
+🌍 Finish Exploration
+</button>
+
+<script>
+
+
+// ---------- Answers ----------
+
+let answers = {
+    country: "",
+    familiarity: "",
+    rating: "",
+    emotion: "",
+    culture: "",
+    discovery: ""
+};
+
+// ---------- Rating ----------
+
+const ratings = document.querySelectorAll(".rating span");
+
+ratings.forEach((star, index) => {
+
+    star.addEventListener("click", () => {
+
+        ratings.forEach(s => s.classList.remove("selected"));
+
+        for (let i = 0; i <= index; i++) {
+            ratings[i].classList.add("selected");
+        }
+
+        answers.rating = index + 1;
+
+    });
+
+});
+
+// ---------- Option Cards ----------
+
+const optionCards = document.querySelectorAll(".option-card");
+
+optionCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const question = card.closest(".survey-question");
+
+        question.querySelectorAll(".option-card")
+            .forEach(c => c.classList.remove("selected"));
+
+        card.classList.add("selected");
+
+        const title = question.querySelector("h2").innerText;
+
+        if (title.includes("familiar")) {
+            answers.familiarity = card.innerText.trim();
+        }
+
+        else if (title.includes("emotions")) {
+            answers.emotion = card.innerText.trim();
+        }
+
+        else if (title.includes("learn more")) {
+            answers.culture = card.innerText.trim();
+        }
+
+    });
+
+});
+
+// ---------- Finish Survey ----------
+
+async function finishSurvey() {
+
+    answers.discovery =
+        document.querySelector("textarea").value.trim();
+
+    answers.country =
+        localStorage.getItem("selectedCountry");
+
+    localStorage.setItem(
+        "surveyAnswers",
+        JSON.stringify(answers)
+    );
+
+    try {
+
+        await fetch("https://script.google.com/macros/s/AKfycbwNtUJcjkjMwYpCU6H_Vp1-712s2ZKW_o7bciAhdThbRtLNf1RPA-lkGwwHDHzZ8CrV/exec", {
+
+    method: "POST",
+
+    mode: "no-cors",
+
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+    },
+
+    body: JSON.stringify(answers)
+
+});
+
+    } catch (error) {
+
+        console.error("Error sending data:", error);
+
+    }
+
+    window.location.href = "thanks.html";
+
+}
+
+
+</script>
+
+</body>
+
+</html>

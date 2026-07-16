@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://sonya-pam.github.io/music-culture-research/sitemap.xml

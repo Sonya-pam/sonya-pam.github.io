@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reflection</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png">
+<link rel="shortcut icon" href="Images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="card reflection-page">
+
+
+<h1>
+🌍 Reflection about Italy
+</h1>
+
+
+<p class="subtitle">
+
+You have just explored a new culture through music.
+Take a moment to reflect on your experience before starting the survey.
+
+</p>
+
+
+
+<div class="reflection-cards">
+
+
+<div class="reflection-card">
+
+<div class="emoji">
+🌍
+</div>
+
+<h3>
+Discover
+</h3>
+
+<p>
+Did anything surprise you about this country?
+</p>
+
+</div>
+
+
+
+<div class="reflection-card">
+
+<div class="emoji">
+🎵
+</div>
+
+<h3>
+Music
+</h3>
+
+<p>
+What emotions did the song make you feel?
+</p>
+
+</div>
+
+
+
+
+<div class="reflection-card">
+
+<div class="emoji">
+✨
+</div>
+
+<h3>
+Culture
+</h3>
+
+<p>
+Would you like to learn more about this culture?
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<h2>
+Did this song make you curious about Italy?
+</h2>
+
+
+
+<div class="choice-grid">
+
+
+
+<div class="choice-card" data-value="Yes">
+
+<div class="emoji">
+😊
+</div>
+
+<h3>
+Yes, definitely
+</h3>
+
+<p>
+I would like to know more about this country.
+</p>
+
+</div>
+
+
+
+
+<div class="choice-card" data-value="Little">
+
+<div class="emoji">
+🙂
+</div>
+
+<h3>
+A little
+</h3>
+
+<p>
+The music created some interest.
+</p>
+
+</div>
+
+
+
+
+
+<div class="choice-card" data-value="No">
+
+<div class="emoji">
+😐
+</div>
+
+<h3>
+Not really
+</h3>
+
+<p>
+My interest stayed the same.
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<button id="surveyButton" disabled>
+
+Start Survey →
+
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+const cards=document.querySelectorAll(".choice-card");
+
+const button=document.getElementById("surveyButton");
+
+
+
+cards.forEach(card=>{
+
+
+card.addEventListener("click",()=>{
+
+
+cards.forEach(c=>c.classList.remove("selected"));
+
+
+card.classList.add("selected");
+
+
+button.disabled=false;
+
+
+});
+
+
+});
+
+
+
+button.addEventListener("click",()=>{
+
+
+location.href="survey1.html";
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

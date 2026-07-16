@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Survey</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png">
+<link rel="shortcut icon" href="Images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<p class="step">SURVEY</p>
+
+<h1>Music & Culture Survey</h1>
+
+<p class="subtitle">
+Please answer the following questions.
+</p>
+
+<form id="surveyForm">
+
+<div class="question">
+
+<label>
+1. How interested are you in this country?
+</label>
+
+<select required>
+<option value="">Choose...</option>
+<option>1 - Not interested</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5 - Very interested</option>
+</select>
+
+</div>
+
+<div class="question">
+
+<label>
+2. Would you like to visit this country?
+</label>
+
+<select required>
+<option value="">Choose...</option>
+<option>Yes</option>
+<option>Maybe</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div class="question">
+
+<label>
+3. How much do you know about this country's culture?
+</label>
+
+<select required>
+<option value="">Choose...</option>
+<option>Nothing</option>
+<option>A little</option>
+<option>Some</option>
+<option>A lot</option>
+</select>
+
+</div>
+
+<div class="question">
+
+<label>
+4. Did the music make you more interested in this country?
+</label>
+
+<select required>
+<option value="">Choose...</option>
+<option>Yes</option>
+<option>Maybe</option>
+<option>No</option>
+</select>
+
+</div>
+
+<div class="question">
+
+<label>
+5. Would you like to learn more about this country's culture?
+</label>
+
+<select required>
+<option value="">Choose...</option>
+<option>Yes</option>
+<option>Maybe</option>
+<option>No</option>
+</select>
+
+</div>
+
+<button type="submit">
+Finish →
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("surveyForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+location.href="thanks.html";
+
+});
+
+</script>
+
+</body>
+</html>

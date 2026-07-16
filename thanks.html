@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Cultural Journey</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png">
+<link rel="shortcut icon" href="Images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="card thanks-page">
+
+<h1>🌍 Your Cultural Journey</h1>
+
+<p class="subtitle">
+Thank you for exploring music and culture!
+</p>
+
+<div class="journey-box">
+
+<h2 id="countryName"></h2>
+
+<img id="countryImage" alt="Country">
+
+<p id="countrySong"></p>
+
+</div>
+
+<div class="result-stats">
+
+    <div class="badge-box">
+
+<h2>🏆 Your Cultural Badge</h2>
+
+<div id="badgeCard" class="badge-card">
+
+<h3 id="badgeTitle"></h3>
+
+<p id="badgeDescription"></p>
+
+</div>
+
+</div>
+
+<div class="result-item">
+🧭
+<h3>Your profile</h3>
+<p>Explorer</p>
+</div>
+
+<div class="result-item">
+🌎
+<h3>Countries explored</h3>
+<p>1 / 6</p>
+</div>
+
+<div class="result-item">
+⭐
+<h3>Interest</h3>
+<p>High</p>
+</div>
+
+</div>
+
+<h2 class="quote">
+"Music is the language that everyone understands."
+</h2>
+
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:40px;">
+
+<button onclick="location.href='countries.html'">
+🌍 Explore Another Country
+</button>
+
+<button onclick="location.href='results.html'">
+📊 View Research Results
+</button>
+
+</div> 
+<script>
+
+const country = localStorage.getItem("selectedCountry");
+
+const info = {
+
+Italy:{
+title:"🇮🇹 Italy",
+image:"Images/italy.png",
+song:"🎵 Måneskin — Zitti e buoni"
+},
+
+Japan:{
+title:"🇯🇵 Japan",
+image:"Images/japan.png",
+song:"🎵 YOASOBI — Idol"
+},
+
+Korea:{
+title:"🇰🇷 South Korea",
+image:"Images/korea.png",
+song:"🎵 BTS — Dynamite"
+},
+
+Spain:{
+title:"🇪🇸 Spain",
+image:"Images/spain.png",
+song:"🎵 Rosalía — MALAMENTE"
+},
+
+France:{
+title:"🇫🇷 France",
+image:"Images/france.png",
+song:"🎵 Stromae — Alors on danse"
+},
+
+Brazil:{
+title:"🇧🇷 Brazil",
+image:"Images/brazil.png",
+song:"🎵 Anitta — Envolver"
+}
+
+};
+
+document.getElementById("countryName").innerHTML = info[country].title;
+document.getElementById("countryImage").src = info[country].image;
+document.getElementById("countrySong").innerHTML = info[country].song;
+
+const answers =
+JSON.parse(localStorage.getItem("surveyAnswers"));
+
+let badgeTitle = "";
+let badgeText = "";
+
+if(answers.rating=="5"){
+
+badgeTitle="⭐ Music Explorer";
+
+badgeText="You truly connected with this song.";
+
+}
+
+else if(answers.emotion.includes("Inspired")){
+
+badgeTitle="✨ Dreamer";
+
+badgeText="Music inspired your imagination.";
+
+}
+
+else if(answers.emotion.includes("Energetic")){
+
+badgeTitle="🔥 Rhythm Hunter";
+
+badgeText="You enjoy energetic rhythms.";
+
+}
+
+else if(answers.culture.includes("YES")){
+
+badgeTitle="🌍 Culture Lover";
+
+badgeText="You are curious about other cultures.";
+
+}
+
+else{
+
+badgeTitle="🎵 Music Listener";
+
+badgeText="Every song opens a new world.";
+
+}
+
+document.getElementById("badgeTitle").innerHTML = badgeTitle;
+
+document.getElementById("badgeDescription").innerHTML = badgeText;
+
+</script>
+
+</body>
+</html>

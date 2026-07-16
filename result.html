@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Cultural Journey</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png">
+<link rel="shortcut icon" href="Images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="card result-page">
+
+
+<h1>
+🌍 Your Cultural Journey
+</h1>
+
+
+<p class="subtitle">
+
+Thank you for exploring music and culture!
+
+</p>
+
+
+
+
+<div class="result-box">
+
+
+<h2 id="countryTitle"></h2>
+
+
+<img id="countryImage" alt="Country">
+
+
+<p id="countryText"></p>
+
+
+</div>
+
+
+
+
+
+<div class="result-stats">
+
+
+<div class="result-item">
+
+🎵
+
+<h3>
+Music reaction
+</h3>
+
+<p>
+★★★★★
+</p>
+
+</div>
+
+
+
+<div class="result-item">
+
+✨
+
+<h3>
+Emotion
+</h3>
+
+<p>
+Inspired
+</p>
+
+</div>
+
+
+
+<div class="result-item">
+
+🌎
+
+<h3>
+Interest
+</h3>
+
+<p>
+Very curious
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<h2>
+
+"Music is a bridge between cultures."
+
+</h2>
+
+
+
+
+<button onclick="location.href='index.html'">
+
+🌍 Explore another country
+
+</button>
+
+
+
+</div>
+
+<script>
+
+let country = localStorage.getItem("selectedCountry");
+
+
+let data = {
+
+Italy:{
+title:"🇮🇹 Italy",
+image:"Images/italy.png",
+text:"You discovered a new musical culture through Maneskin - Zitti e buoni."
+},
+
+
+Japan:{
+title:"🇯🇵 Japan",
+image:"Images/japan.png",
+text:"You discovered a new musical culture through YOASOBI - Idol."
+},
+
+
+Korea:{
+title:"🇰🇷 South Korea",
+image:"Images/korea.png",
+text:"You discovered a new musical culture through BTS - Dynamite."
+},
+
+
+Spain:{
+title:"🇪🇸 Spain",
+image:"Images/spain.png",
+text:"You discovered a new musical culture through Rosalía - MALAMENTE."
+},
+
+
+France:{
+title:"🇫🇷 France",
+image:"Images/france.png",
+text:"You discovered a new musical culture through Stromae - Alors on danse."
+},
+
+
+Brazil:{
+title:"🇧🇷 Brazil",
+image:"Images/brazil.png",
+text:"You discovered a new musical culture through Anitta - Envolver."
+}
+
+
+};
+
+
+
+document.getElementById("countryTitle").innerHTML =
+data[country].title;
+
+
+document.getElementById("countryImage").src =
+data[country].image;
+
+
+document.getElementById("countryText").innerHTML =
+data[country].text;
+
+
+
+</script>
+
+
+</body>
+
+</html>
